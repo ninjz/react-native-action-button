@@ -35,6 +35,7 @@ export default class ActionButtonItem extends Component {
           alignItems: this.state.alignItems,
           marginBottom: this.props.spacing,
           opacity: this.props.anim,
+          width: actionBtnWidth,
           transform: [{
             translateY: this.props.anim.interpolate({
               inputRange: [0, 1],
@@ -44,7 +45,7 @@ export default class ActionButtonItem extends Component {
           }
         ]}
       >
-        <TouchableOpacity style={{flex:1}} activeOpacity={this.props.activeOpacity || 0.85} onPress={this.props.onPress}>
+        <TouchableOpacity style={{flex:1,}} activeOpacity={this.props.activeOpacity || 0.85} onPress={this.props.onPress}>
           <View
             style={[styles.actionButton, this.props.style, {
               width: actionBtnWidth,

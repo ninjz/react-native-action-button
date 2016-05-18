@@ -105,7 +105,10 @@ export default class ActionButton extends Component {
         }]}>
           {this.props.backdrop}
         </Animated.View>
-        <View pointerEvents="box-none" style={this.getContainerStyles()}>
+        <View pointerEvents="box-none"
+          style={[
+            this.getContainerStyles(), {
+          }]}>
           {this.props.children && this._renderActions()}
           {this._renderButton()}
         </View>
@@ -176,10 +179,11 @@ export default class ActionButton extends Component {
     }
 
     return (
-        <TouchableOpacity
-          style={this.getActionsStyle()}
-          activeOpacity={1}
-          onPress={() => { this.reset() }}>
+        <View
+          pointerEvents="box-none"
+          style={[this.getActionsStyle(),{
+            width: this.state.size,
+          }]}>
           {actionButtons.map((ActionButton, index) => {
             return (
               <ActionButtonItem
@@ -201,7 +205,7 @@ export default class ActionButton extends Component {
               />
             )
           })}
-        </TouchableOpacity>
+        </View>
     );
   }
 
